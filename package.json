@@ -1,0 +1,27 @@
+{
+  "name": "nhm-test-automation",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "web-only": "npx cucumber-js --profile web",
+    "mobile-only": "npx cucumber-js --profile mobile",
+    "all": "npx cucumber-js --profile all",
+    "web-only:headed": "npx cucumber-js --profile web -- --headed",
+    "mobile-only:headed": "npx cucumber-js --profile mobile -- --headed",
+    "all:headed": "npx cucumber-js --profile all -- --headed"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "devDependencies": {
+    "@cucumber/cucumber": "^11.3.0",
+    "@cucumber/html-formatter": "^21.10.1",
+    "@playwright/test": "^1.52.0",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.8.3"
+  },
+  "dependencies": {
+    "dotenv": "^16.5.0"
+  }
+}
