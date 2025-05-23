@@ -4,32 +4,29 @@ module.exports = {
     '--require tests/shared/step-definitions/**/*.ts',
     '--require tests/web/step-definitions/**/*.ts',
     '--require tests/mobile/step-definitions/**/*.ts',
-    '--require tests/support/**/*.ts',
-    '--format @cucumber/html-formatter',
-    '--format-options {"output":"reports/default-report.html"}',
-    '--publish-quiet'
+    '--require support/**/*.ts',
+    '--format',
+    'json:reports/json/default-report.json',
   ].join(' '),
 
   web: [
     '--require-module ts-node/register',
     '--require tests/shared/step-definitions/**/*.ts',
     '--require tests/web/step-definitions/**/*.ts',
-    '--require tests/support/**/*.ts',
+    '--require support/**/*.ts',
     'tests/web/features/**/*.feature',
-    '--format @cucumber/html-formatter',
-    '--format-options {"output":"reports/web-report.html"}',
-    '--publish-quiet'
+    '--format',
+    'json:reports/json/web-report.json',
   ].join(' '),
 
   mobile: [
     '--require-module ts-node/register',
     '--require tests/shared/step-definitions/**/*.ts',
     '--require tests/mobile/step-definitions/**/*.ts',
-    '--require tests/support/**/*.ts',
+    '--require support/**/*.ts',
     'tests/mobile/features/**/*.feature',
-    // '--format @cucumber/html-formatter',
-    // '--format-options {"output":"reports/mobile-report.html"}',
-    '--publish-quiet'
+    '--format',
+    'json:reports/json/mobile-report.json',
   ].join(' '),
 
   all: [
@@ -37,11 +34,10 @@ module.exports = {
     '--require tests/shared/step-definitions/**/*.ts',
     '--require tests/web/step-definitions/**/*.ts',
     '--require tests/mobile/step-definitions/**/*.ts',
-    '--require tests/support/**/*.ts',
+    '--require support/**/*.ts',
     'tests/web/features/**/*.feature',
     'tests/mobile/features/**/*.feature',
-    '--format @cucumber/html-formatter',
-    '--format-options {"output":"reports/all-report.html"}',
-    '--publish-quiet'
+    '--format',
+    'json:reports/json/all-report.json',
   ].join(' ')
 };

@@ -1,0 +1,53 @@
+[
+  {
+    "description": "",
+    "elements": [
+      {
+        "description": "",
+        "id": "navigation;user-visits-a-webpage",
+        "keyword": "Scenario",
+        "line": 3,
+        "name": "User visits a webpage",
+        "steps": [
+          {
+            "keyword": "Before",
+            "hidden": true,
+            "result": {
+              "status": "passed",
+              "duration": 3564391300
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Given ",
+            "line": 4,
+            "name": "I go to \"https://uatmarketplace.crygoca.com/signin\"",
+            "match": {
+              "location": "tests\\mobile\\step-definitions\\example.step.ts:4"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 16491413899
+            }
+          },
+          {
+            "keyword": "After",
+            "hidden": true,
+            "result": {
+              "status": "passed",
+              "duration": 1218626000
+            }
+          }
+        ],
+        "tags": [],
+        "type": "scenario"
+      }
+    ],
+    "id": "navigation",
+    "line": 1,
+    "keyword": "Feature",
+    "name": "Navigation",
+    "tags": [],
+    "uri": "tests\\mobile\\features\\example.feature"
+  }
+]

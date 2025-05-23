@@ -1,15 +1,14 @@
-import * as dotenv from 'dotenv';
-import { Before, After, Status } from '@cucumber/cucumber';
-import { Browser, chromium, Page } from 'playwright';
-import { setDefaultTimeout } from '@cucumber/cucumber';
+import * as dotenv from "dotenv";
+import { Before, After, Status } from "@cucumber/cucumber";
+import { Browser, chromium, Page } from "playwright";
+import { setDefaultTimeout } from "@cucumber/cucumber";
 dotenv.config();
 
 const GLOBAL_TIMEOUT = Number(process.env.GLOBAL_TIMEOUT!);
 setDefaultTimeout(GLOBAL_TIMEOUT * 1000); // 30 seconds timeout
 
-const keepBrowser = process.env.KEEP_BROWSER === 'true';
-const isHeadless = !process.argv.includes('--headed'); // default is headless unless --headed is passed
-
+const keepBrowser = process.env.KEEP_BROWSER === "true";
+const isHeadless = !process.argv.includes("--headed"); // default is headless unless --headed is passed
 
 interface CustomWorld {
   browser?: Browser;
@@ -25,13 +24,13 @@ Before(async function (this: CustomWorld) {
 });
 
 After(async function (this: CustomWorld, scenario) {
-if (keepBrowser) {
-    console.log('🧪 Skipping browser cleanup due to KEEP_BROWSER=true');
+  if (keepBrowser) {
+    console.log("🧪 Skipping browser cleanup due to KEEP_BROWSER=true");
     return;
   }
   if (scenario.result?.status === Status.FAILED && this.page) {
     await this.page.context().tracing.stop({
-      path: `traces/${scenario.pickle.name.replace(/\s+/g, '_')}.zip`
+      path: `traces/${scenario.pickle.name.replace(/\s+/g, "_")}.zip`,
     });
   } else {
     await this.page?.context().tracing.stop();
@@ -39,5 +38,3 @@ if (keepBrowser) {
 
   await this.browser?.close();
 });
-
-
